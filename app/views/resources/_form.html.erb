@@ -1,0 +1,82 @@
+<%= form_for(@resource) do |f| %>
+<% if @resource.errors.any? %>
+<div id="error_explanation">
+	<h2><%= pluralize(@resource.errors.count, "error") %> prohibited this resource from being saved:</h2>
+
+	<ul>
+		<% @resource.errors.full_messages.each do |msg| %>
+		<li>
+			<%= msg %>
+		</li>
+		<% end %>
+	</ul>
+</div>
+<% end %>
+
+<div class="row">
+	<div class='large-6'>
+		<div class="row collapse">
+			<div class="large-4 columns right-inline">
+				<%= f.label :first_name %>
+			</div>
+			<div class="large-6 columns">
+				<%= f.text_field :fname %>
+			</div>
+		</div>
+		<div class="row collapse">
+			<div class="large-4 columns right-inline">
+				<%= f.label :last_name %>
+			</div>
+			<div class="large-6 columns">
+				<%= f.text_field :lname %>
+			</div>
+		</div>
+		<div class="row collapse">
+			<div class="large-4 columns right-inline">
+				<%= f.label :date_of_birth %>
+			</div>
+			<div class="large-6 columns">
+				<%= f.date_field :dob,  :class => 'fdatepicker' %>
+
+			</div>
+		</div>
+		<div class="row collapse">
+			<div class="large-4 columns right-inline">
+				<%= f.label :phonenumber %>
+			</div>
+			<div class="large-6 columns">
+				<%= f.phone_field :phnumber %>
+			</div>
+		</div>
+		<div class="row collapse">
+			<div class="large-4 columns right-inline">
+				<%= f.label :email %>
+			</div>
+			<div class="large-6 columns">
+				<%= f.text_field :email %>
+			</div>
+		</div>
+		<div class="row collapse">
+			<div class="large-4 columns right-inline">
+				<%= f.label :experience %>
+			</div>
+			<div class="large-6 columns">
+				<%= f.number_field :expr %>
+			</div>
+		</div>
+		<div class="row collapse">
+			<div class="large-4 columns right-inline">
+				<%= f.label :specialization %>
+			</div>
+			<div class="large-6 columns">
+				<%= f.select :spclizn, [['asp.net',1], ['c#',2], ['sql',3]], {:include_blank => 'Select'}, :multiple => true, :id => 'multiselect'%>
+			</div>
+		</div>
+		<div class="row collapse">
+			<div class="large-4 large-offset-4 columns">
+				<%= f.submit 'Submit', class: 'small button radius' %>
+			</div>
+		</div>
+		<% end %>
+	</div>
+</div>

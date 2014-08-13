@@ -1,0 +1,20 @@
+<%# add navigation links to this file %>
+
+<li class = "has-dropdown"><%= link_to 'Projects', projects_url %>
+	<ul class="dropdown">
+		<li><%= link_to 'Add Project', new_project_url %></li>
+		<li><%= link_to 'View Projects', projects_url %></li>
+	</ul>
+</li>
+<li class = "has-dropdown"><%= link_to 'Clients', clients_url %>
+	<ul class="dropdown">
+		<li><%= link_to 'Add Client', new_client_url %></li>
+		<li><%= link_to 'View Clients', clients_url %></li>
+	</ul>
+</li>
+<li class = "has-dropdown"><%= link_to 'Resources', resources_url %>
+	<ul class="dropdown">
+		<li><%= link_to 'Add Resource', new_resource_url %></li>
+		<li><%= link_to 'View Resources', resources_url %></li>
+	</ul>
+</li>

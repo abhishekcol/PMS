@@ -1,0 +1,56 @@
+<div class="row collapse" style="padding-top: 30px">
+	<h1>Edit Project</h1>
+</div>
+
+
+<%= form_for :project, url: projects_path do |f| %>
+<% if @project.errors.any? %>
+<div id="error_explanation">
+	<h2><%= pluralize(@project.errors.count, "error")%> prohibited this project from being saved:</h2>
+	<ul class='error'>
+		<% @project.errors.full_messages.each do |msg|%>
+		<li class='error'>
+			<%= msg %>
+		</li>
+		<% end %>
+	</ul>
+</div>
+<% end %>
+
+<div class="row collapse">
+	<div class="large-4 columns">
+		<%= f.label :project_name, class: 'right-inline'  %>
+	</div>
+	<div class="large-6 columns">
+		<%= f.text_field :projectname %>
+	</div>
+</div>
+
+<div class="row collapse">
+	<div class="large-4 columns">
+		<%= f.label :teamleader, class: 'right-inline'  %>
+	</div>
+	<div class="large-6 columns">
+		<%= f.text_field :teamleader %>
+	</div>
+</div>
+
+<div class="row collapse">
+	<div class="large-4 columns">
+		<%= f.label :client, class: 'right-inline'  %>
+	</div>
+	<div class="large-6 columns" class='button dropdown'>
+		<%= f.select :client, [['UEMS',1], ['NGV',2], ['iClick',3]] , {:include_blank => 'Select'}  %>
+	</div>
+</div>
+<br />
+
+<div class="row collapse">
+	<div class="large-4 columns"></div>
+		<div class="large-6 columns"><%= f.submit 'Submit', :class=> 'small button round' %>
+		<%= link_to 'Back', projects_path,:class=>"small button round" %></div>
+	</div>
+</div>
+
+<%end%>
+

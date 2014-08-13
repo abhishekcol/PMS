@@ -1,0 +1,41 @@
+<div class="row">
+<h1>Listing resources</h1>
+
+<table class="large-12">
+  <thead>
+    <tr>
+      <th>Firstname</th>
+      <th>Lastname</th>
+      <th>Dob</th>
+      <th>Phonenumber</th>
+      <th>Email</th>
+      <th>Experience</th>
+      <th>Sepcialization</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @resources.each do |resource| %>
+      <tr>
+        <td><%= resource.fname %></td>
+        <td><%= resource.lname %></td>
+        <td><%= resource.dob %></td>
+        <td><%= resource.phnumber %></td>
+        <td><%= resource.email %></td>
+        <td><%= resource.expr %></td>
+        <td><%= resource.spclizn %></td>
+        <td><%= link_to 'Show', resource %></td>
+        <td><%= link_to 'Edit', edit_resource_path(resource) %></td>
+        <td><%= link_to 'Destroy', resource, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Resource', new_resource_path %>
+</div>

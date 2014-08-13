@@ -1,0 +1,31 @@
+<div class="row collapse">
+	<h1>Listing Projects</h1>
+
+	<table class="large-12">
+		<thead>
+			<tr>
+				<th>Project Name</th>
+				<th>Teamleader</th>
+				<th>Client</th>
+				<th colspan="3"></th>
+			</tr>
+		</thead>
+
+		<% @projects.each do |project| %>
+		<tbody>
+			<tr>
+				<td class="description"><%= project.projectname %></td>
+				<td class="description"><%= project.teamleader %></td>
+				<td class="description"><%= project.client %></td>
+				<td class="cta-button"><%= link_to 'Show', project_path(project) %></td>
+				<td class="cta-button"><%= link_to 'Edit', edit_project_path(project) %></td>
+				<td class="cta-button"><%= link_to 'Delete', project, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+			</tr>
+		</tbody>
+		<% end %>
+	</table>
+	<br />
+	<div class="row collapse">
+		<%= link_to 'New Project', new_project_path %>
+	</div>
+</div>

@@ -1,0 +1,38 @@
+<div class="row collapse">
+	<h2>Listing clients</h2>
+
+	<table class="large-12">
+		<thead>
+			<tr>
+				<th>Name</th>
+				<th>Country</th>
+				<th>Address</th>
+				<th>Mobilenumber</th>
+				<th>Email</th>
+				<th></th>
+				<th></th>
+				<th></th>
+			</tr>
+		</thead>
+
+		<tbody>
+			<% @clients.each do |client| %>
+			<tr>
+				<td><%= client.name %></td>
+				<td><%= client.country %></td>
+				<td><%= client.address %></td>
+				<td><%= client.mobilenumber %></td>
+				<td><%= client.email %></td>
+				<td><%= link_to 'Show', client %></td>
+				<td><%= link_to 'Edit', edit_client_path(client) %></td>
+				<td><%= link_to 'Delete', client, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+			</tr>
+			<% end %>
+		</tbody>
+	</table>
+
+	<br>
+	<div class="row collapse">
+		<%= link_to 'New Client', new_client_path %>
+	</div>
+</div>
